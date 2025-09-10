@@ -1,4 +1,4 @@
-#10. Dream City Selector
+#Dream City Selector
 #Goal: Recommend City based on climate choice.
 # Flow Idea:
 #● If choice = "cold" → Manali
@@ -31,7 +31,7 @@ elif choice == "rainy":
     print("Recommended city: Kerala")
 else:
     print("Recommended city: Delhi")
-#9. Marksheet Creator
+# Marksheet Creator
 #Goal: Calculate grade based on marks.
 # Flow Idea:
 #● Marks > 90 → A
@@ -53,7 +53,7 @@ def grade_calculator(marks):
 #print(marks.grade_calculator()) oops method.object calling
 grade_calculator(92)
 
-##8. Odd/Even Number Checker
+## Odd/Even Number Checker
 ##Goal: Ask number → tell Odd or Even.
 ## Flow Idea:
 ##● Take number input    
@@ -78,7 +78,7 @@ def num_check(num):
         print("odd",num)
 num_check(9)
 
-##7. Crush Reply Waiter
+## Crush Reply Waiter
 #Goal: Keep checking phone until crush replies.
 # Flow Idea:
 #● While reply not received
@@ -108,7 +108,7 @@ while reply != "yes":
 
 print(" Yay! Crush replied! Time to celebrate!")
 
-#5. Password Strong Checker
+# Password Strong Checker
 #Goal: Check if password has >8 letters and number.
 # Flow Idea:
 #● If password length >8 and has digit → strong
@@ -134,6 +134,7 @@ while current_hour < 21:  # until 9 PM
     current_hour += 0.5  # add half an hour
 
 print(" Water reminder stopped.")
+
 
 
 
