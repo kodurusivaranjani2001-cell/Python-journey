@@ -1,0 +1,28 @@
+market=["apples","potato","carrot","oranges","chilli"]
+supermarket={}
+if market[0]=="apples":
+    print("fruits",market[0])
+    supermarket.update({market[0]:"fruits",market[3]:"fruits"})
+    
+if market[1]=="cherry":
+    print("vegetables",market[1])
+    supermarket.update({market[1]:"vegetables",market[2]:"vegetables",market[4]:"vegetables"})
+print(supermarket)
+
+student = {
+    "name": "Alice",
+    "age": 20,
+    "grade": "A"
+}
+for i  in student:
+    print(i,student[i])
+print(student.get("age"))
+#print(student)
+print(student.values())
+print(student.items())
+
+students={
+    "student1":{"name":"Alice","age":20,"grade":"A"},
+    "student2":{"name":"Bob","age":21,"grade":"B"},
+    }
+print(students["student1"]["name"])
