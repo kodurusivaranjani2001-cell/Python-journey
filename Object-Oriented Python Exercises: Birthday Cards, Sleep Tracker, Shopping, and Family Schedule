@@ -1,0 +1,111 @@
+class Birthday:
+    def __init__(self,name,favourite_cartoon):
+        self.name=name
+        self.favourite_cartoon=favourite_cartoon
+    def card_generator(self):
+        print(f"{self.name}! enjoy your day with {self.favourite_cartoon}")        
+father=Birthday("ram","Ben 10")
+father.card_generator()            
+            
+class sleep_tracker:
+
+    def __init__(self,sleep_hours):
+        self.sleep_hours=sleep_hours
+
+    def average_sleep_7(self,average_sleep):
+        
+        self.average_sleep=(sum(self.sleep_hours)/len(self.sleep_hours))
+        print(f"avg sleep", self.average_sleep)
+        
+    def is_child_deprived(self):
+        #sleep_tracker.average_sleep_7(self,average_sleep)
+        if self.average_sleep<6:
+           print("child is sleep deprived")
+        else:
+            print("ok")
+                
+sleep_hours=[6,8,5,5,7,6,5]
+mentor=sleep_tracker(sleep_hours)
+mentor.average_sleep_7(sleep_hours)
+mentor.is_child_deprived()
+    
+class Shopping:
+    def __init__(self,children_with_budget,shopping_list_with_prices):
+        self.children_with_budget=children_with_budget
+        self.shopping_list_with_prices=shopping_list_with_prices
+
+    def can_buy(self):
+        for child,budget in self.children_with_budget.items():
+            affordable_items=[] # how it can take without self inside 
+            
+            for item,price in self.shopping_list_with_prices.items():
+                if price<budget:
+                    affordable_items.append(item)
+                    
+            print(f"{child} can buy: {', '.join(affordable_items) if affordable_items else 'nothing'}")## explanation needed
+            
+        
+
+children_with_budget={"ram":500,"sita":300,"gita":150}
+shopping_list_with_prices={"maggie":10,"teddy":200,"chips":50,"ball":60}
+children=Shopping( children_with_budget, shopping_list_with_prices)      
+children.can_buy()
+
+class FamilySchedule:
+    def cook(self):
+        print("Cooking dinner for the family.")
+
+    def study(self):
+        print("Studying together in the living room.")
+
+    def sleep(self):
+        print("Everyone is going to bed.")
+
+    def run_task(self, task_name):
+        # Map task names to methods
+        task_map = {
+            "cook": self.cook,
+            "study": self.study,
+            "sleep": self.sleep
+        }
+        # Get the method and call it, or print an error
+        task = task_map.get(task_name)
+        if task:
+            task()
+        else:
+            print(f"Unknown task: {task_name}")
+
+# Example usage:
+schedule = FamilySchedule()
+schedule.run_task("cook")
+schedule.run_task("study")
+schedule.run_task("sleep")
+schedule.run_task("play")  # Unknown task
+
+
+class FamilySchedule:
+    def cook(self):
+        print("Cooking dinner for the family.")
+
+    def study(self):
+        print("Studying together in the living room.")
+
+    def sleep(self):
+        print("Everyone is going to bed.")
+
+    def run_task(self, task_name):
+        if task_name == "cook":
+            self.cook()
+        elif task_name == "study":
+            self.study()
+        elif task_name == "sleep":
+            self.sleep()
+        else:
+            print(f"Unknown task: {task_name}")
+
+# Example usage:
+schedule = FamilySchedule()
+schedule.run_task("cook")
+schedule.run_task("study")
+schedule.run_task("sleep")
+schedule.run_task("play")  # Unknown task
