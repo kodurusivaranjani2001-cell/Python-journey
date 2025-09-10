@@ -1,0 +1,149 @@
+class child:
+    def __init__(self,homework_done,bath_done):
+        self.homework_done=homework_done
+        self.bath_done=bath_done
+    def is_lazy(self):
+        # returns True if homework or bath is not done
+        return not self.homework_done or not self.bath_done
+
+c1=child(homework_done=True,bath_done=False)
+print(c1.is_lazy())
+
+class remotecontrol:
+
+    def __init__(self):
+         self.pooja_time="pooja_time"
+         self.turn_on_tv="turn_on tv"
+         self.mute_tv="mute_tv"
+         self.pause_tv="pause_tv"
+    def brother_reading(self,brother):
+        if brother == "reading" :
+            print(f"brother is reading",self.mute_tv)
+        elif brother == "sleeping":
+            print(f" brother is sleeping ,{self.turn_on_tv} with small sound")
+
+        elif brother == "taliking to someone":
+            print(f" some one is coming just pause the tv for 5 min",self.pause_tv)
+            
+mother=remotecontrol()
+mother.brother_reading("sleeping")
+
+class TV:
+    def turn_on(self):
+        print(" TV is now ON")
+
+    def mute(self):
+        print(" TV is muted")
+
+    def pause(self):
+        print(" TV is paused")
+my_tv=TV()
+my_tv.mute()
+
+
+class RemoteControl:
+    def __init__(self, tv):
+        self.tv = tv  # RemoteControl holds a reference to a TV object
+
+    def press_button(self, action):
+        if action == "on":
+            self.tv.turn_on()
+        elif action == "mute":
+            self.tv.mute()
+        elif action == "pause":
+            self.tv.pause()
+        else:
+            print(" Unknown action")
+
+
+# Example usage:
+#my_tv = TV()
+remote = RemoteControl(my_tv)
+
+remote.press_button("on")     #  TV is now ON
+remote.press_button("mute")   #  TV is muted
+remote.press_button("pause")  #  TV is paused
+                   
+
+class student:
+
+    def __init__ (self,subject_marks):
+        self.subject_marks=subject_marks
+        
+    def report_card(self):
+        total=0
+        count=0
+        for subject, marks in self.subject_marks.items():
+            print(f"{subject}:{marks}")
+            total = total+marks
+            print(total,"total marks")
+            count+= 1
+            print(count)
+        average=total/count if count > 0 else 0
+        print(f"average marks: {average}")
+        if average >85:
+            print("A grade")
+        elif 75 < average < 85:
+            print("B grade")
+        elif average<45:
+            print("fail")
+
+subject_marks={"tel":35,"eng":36,"math":38}
+subject_marks["eng"]=45
+subject_marks.update({"math":60})
+print(subject_marks)
+run=student(subject_marks)
+run.report_card()
+
+
+from collections import Counter 
+
+class Child:
+    def __init__(self, mood_log):
+        self.mood_log = mood_log  # List of moods per hour
+
+    def get_mood_trend(self):
+        if not self.mood_log:
+            return None  # No moods logged
+        mood_counts = Counter(self.mood_log)
+        print("mood counting",mood_counts)
+        most_common_mood = max(mood_counts.items(),key=lambda item:item[1])
+        return most_common_mood
+
+# Example usage:
+moods = ["happy", "sad", "happy", "angry", "happy", "sad"]
+child = Child(moods)
+print(child.get_mood_trend()) 
+
+#mood_counts.most_common(1)[0] returns a tuple: ('happy', 2)
+#most_common_mood, _ = ... assigns 'happy' to most_common_mood and 2 to _ (which we ignore).
+#Summary:
+#, _ is used to ignore the second value in a tuple when you only care about the first.
+
+
+class House:
+    def __init__(self,items):
+        self.items=items
+
+    def add_item(self):
+        #print(self.items.append("electronics"))
+        self.items.append("electronics")
+        print(self.items)
+#You are printing the result of items.append("electronics"), but append() returns None, so it will print None.
+#If you want to see the updated list, you should print self.items after appending.
+    def remove_item(self):
+        self.items.remove("arnaments")
+        print(self.items)
+
+    def check(self):
+        if "furniture" in self.items:
+            print(self.items)
+        else:
+            print("not found")
+
+        
+items=["clothes","furniture","groceries","arnaments"]
+things=House(items)
+things.add_item()              
+things.remove_item()
+things.check()
