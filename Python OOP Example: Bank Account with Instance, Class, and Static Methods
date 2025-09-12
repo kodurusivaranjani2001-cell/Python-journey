@@ -1,0 +1,31 @@
+class bankaccount:
+    interest_rate = 0.05   
+
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"{self.owner} deposited {amount}. New balance = {self.balance}")
+
+    @classmethod
+    def change_interest_rate(cls, new_rate):
+        cls.interest_rate = new_rate
+        print(f"Interest rate changed to {cls.interest_rate}")
+
+    @staticmethod
+    def bank_policy():
+        print("Bank policy: Minimum balance should be Rs.1000")
+
+acc1 = bankaccount("Ram", 5000)
+acc2 = bankaccount("Sita", 8000)
+
+acc1.deposit(2000) 
+acc2.deposit(1000)   
+
+
+bankaccount.change_interest_rate(0.07)  
+
+
+bankaccount.bank_policy()  
