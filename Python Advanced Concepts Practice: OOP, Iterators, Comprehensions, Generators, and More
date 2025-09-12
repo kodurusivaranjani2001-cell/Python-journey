@@ -1,0 +1,149 @@
+# __ init__ __str__ __repr__
+class person:
+    def __init__(self,name):
+        self.name=name
+    def __str__(self):
+        return f" person named {self .name}"
+    def __repr__(self):
+        return f"person ('{self.name}')"
+
+p=person("ram")
+print(str(p))
+print(repr(p))
+
+##
+
+nums=[1,2,3]
+it=iter(nums)
+#print(list(it)) but it is not right way to iterate i.e, we have to iterate one by one
+print(next(it))
+
+# list comprehension
+nums=[nums for nums in range(1,10) if nums%2==0 ]
+print(nums)
+
+# set comprehension
+sqares={x*x  for x in range(5)}
+print(sqares)
+
+# dict comprehension
+square={x:x**x for x in range (5)}
+print(sqares)
+
+cst={x:x*x for x in range(10) if x%2 !=0}
+print(cst)
+
+# closures
+
+def name(msg):
+
+    def dupe():
+        print(msg)
+        
+    return dupe
+ask=name("ram")
+ask()
+
+
+         
+
+# decorators
+
+def decorator(func):
+    def wrapper():
+        print("before")
+        func()
+        print("after")
+    return wrapper
+@decorator
+def greet():
+    print("hello")
+greet()
+
+# generator
+
+def countdown(n):
+    while n>0:
+        yield n
+        n -=1
+for i in countdown(3):
+    print(i)
+    
+
+#sentence=["hi gud mrng , my name is ram"]
+def wordsform(sentence):
+    for words in sentence.split():   
+        yield words
+sentence=("hi gud mrng my name is ram")
+for w in wordsform(sentence):
+    print(w)
+
+def fibonacci(n):
+    if n<0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+for i in range(10):
+    print( fibonacci(i))
+
+
+def fibonacci_series(limit):
+    a,b=0,1
+    for _ in range(limit):
+        yield a
+        a,b = b,a+b
+
+for num in fibonacci_series(10):
+    print(num)
+        
+
+# try,except,finally
+try:
+    x=10/0
+except ZeroDivisionError:
+    print("you cannot divide by zero!")
+#else:
+    #print("else")
+finally:
+    print("this will always run")
+
+try :
+    num = int(10)
+except ValueError:
+    print("conversion failed")
+else:
+    print("conversion successful!")
+finally:
+    print("done")
+    
+
+# callback
+
+def tone_inspired(name):
+    return f"my name  is {name}"
+
+# higher order function
+def greet_me(name,callback):
+    greet_message=callback(name)
+    print(greet_message)
+greet_me("sita",tone_inspired)
+#recursion
+def func(a):
+    a=a+10
+    return a # 15 but not printing
+
+    #print( a) # here a =15 
+# drivers code
+a=5
+func(a) # here we are not receiving 15 function calling
+print(a)
+
+
+def sqares(a):
+    ans=a*a
+    return ans
+a=4
+b=sqares(a)
+print(b)
