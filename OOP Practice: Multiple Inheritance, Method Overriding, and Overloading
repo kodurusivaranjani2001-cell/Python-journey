@@ -1,0 +1,46 @@
+# multiple inheritance
+class dress:
+    def dress_theme(self):
+        print("every one with orange, red or yellow colours with traditinal styles")
+
+class sweets:
+    def sweets_distributed(self):
+        print("laddus","pulihora")
+class festival(dress,sweets):
+    def __init__(self):
+        
+        super().dress_theme()
+        super().sweets_distributed()
+
+celebs=festival()
+#celebs.sweets_distributed()
+#celebs.dress_theme()
+
+#method over riding
+class Life:
+    def __init__(self,name,job):
+        self.name=name
+        self.job=job
+    def life_routine(self):
+        print(f"{self.name} is doing {self.job} and leads a normal life")
+class life(Life):
+    def __init__(self):
+        super().__init__("sita","doctor")
+class life2(Life):
+    def __init__(self):
+        super().__init__("giri","police")
+                         
+        
+task=life()
+task.life_routine()
+task1=life2()
+task1.life_routine()
+
+# over loading
+class calculator:
+    def add(self,*nums):
+        total=sum(nums)
+        print(total)
+cal=calculator()
+cal.add(10)
+cal.add(10,20)
