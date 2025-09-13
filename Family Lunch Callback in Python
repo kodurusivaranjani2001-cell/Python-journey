@@ -1,0 +1,69 @@
+# callback
+
+class Function:
+    def family(self, father, mother, son):
+        self.father = father
+        self.mother = mother
+        self.son = son
+
+    def food(self, rice, sweets, curry):
+        self.rice = rice
+        self.sweets = sweets
+        self.curry = curry
+        
+    def lunch(self, callback):
+        # lunch prepares family + food, then calls callback
+        callback(self)
+
+
+# Example callback function
+def display_lunch(obj):
+    print("Family Members:")
+    print(f"Father: {obj.father}, Mother: {obj.mother}, Son: {obj.son}")
+    print("Food Items:")
+    print(f"Rice: {obj.rice}, Sweets: {obj.sweets}, Curry: {obj.curry}")
+
+
+# Usage
+ask = Function()
+ask.family("Ramesh", "Sita", "Arjun")
+ask.food("Biryani", "Gulab Jamun", "Paneer Curry")
+
+# Call lunch with callback
+ask.lunch(display_lunch)
+
+# another way with composition         
+class Family:
+    def __init__(self, father, mother, son):
+        self.father = father
+        self.mother = mother
+        self.son = son
+        
+class Food:
+    def __init__(self, rice, sweets, curry):
+        self.rice = rice
+        self.sweets = sweets
+        self.curry = curry
+
+class Function:
+    def __init__(self, family, food):
+        self.family = family
+        self.food = food
+
+    def lunch(self, callback):
+        callback(self)   # call the callback
+
+
+def display_lunch(obj):
+    print("Family Members:")
+    print(f"Father: {obj.family.father}, Mother: {obj.family.mother}, Son: {obj.family.son}")
+    print("Food Items:")
+    print(f"Rice: {obj.food.rice}, Sweets: {obj.food.sweets}, Curry: {obj.food.curry}")
+    
+fam = Family("Ramesh", "Sita", "Arjun")
+food = Food("Biryani", "Gulab Jamun", "Paneer Curry")
+
+ask = Function(fam, food)
+
+print("---- Using display_lunch callback ----")
+ask.lunch(display_lunch)    
