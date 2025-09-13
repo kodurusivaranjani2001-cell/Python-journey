@@ -1,0 +1,97 @@
+#karma vs puniyam balance
+class person:
+    def __init__ (self,karma_points,puniyam_points):
+        self.karma_points=karma_points
+        self.puniyam_points=puniyam_points
+    def action(self):
+        if self.karma_points>self.puniyam_points:
+            print("he achieves his dreams in 7 years")
+        elif self.puniyam_points >self.karma_points:
+            print("he achieves his dreams in 3 years")
+        else:
+            print("karma and puniyam are balanced")
+deeds=person(5,8)
+deeds.action()
+#drinking habbit
+consumed_bottles={"week1":2,"week2":1,"week3":1,"week4":2}
+def consumed(consumed_bottles):
+    for week,bottles in consumed_bottles.items():
+        print(f"{week}:{bottles}")
+        yield bottles
+        if bottles <= 4:
+            print("health is safe")
+        elif bottles >12:
+            print("critical condition")
+totall=0
+for bottles in consumed(consumed_bottles):
+    totall=totall+bottles
+print(totall,"final totall of bottles")
+
+#fathers wealth growth simulation
+class investment:
+    def  __init__ (self,name,amount,growth_rate):
+        self.name=name
+        self.amount=amount
+        self.growth_rate=growth_rate
+    def future_value(self,n_years):
+        self.n_years=n_years
+        future_value=self.amount*(1+self.growth_rate)/n_years
+        print(future_value)
+class house(investment):
+    def __init__(self):
+        super().__init__("house",3000000,0.05)
+class gold(investment):
+    def __init__(self):
+        super().__init__("gold",60000,0.08)
+class fatherportfolio:
+    def __init__(self):
+        self.house=house()
+        self.gold=gold()
+ask1=house()
+ask1.future_value(5)
+ask2=gold()
+ask2.future_value(10)
+ask3=fatherportfolio
+ask3()
+# family jealousy clash
+class sister:
+    def __init__(self):
+        super().__init__()
+        print("sister succeed in her career")
+class cousins:
+        def __init__(self):
+            super().__init__()
+            print("cousins has more freedom")
+class fathers:
+    def __init__(self):
+        super().__init__()
+        print("father has more authority")
+class brother(sister,cousins,fathers):
+    def __init__ (self):
+        super().__init__()
+        print("flow of jealous")
+traits=brother()
+
+# family ego clash
+
+class Father:
+    def arrogant(self):
+        print("believes always right")
+
+class Mother:
+    def calm(self):
+        print("avoids fights")
+
+class FamilyMember(Father, Mother):
+    def __init__(self, action):
+        self.action = action
+        if self.action == "calm":
+            self.calm()      # use Mother's method
+        elif self.action == "arrogant":
+            self.arrogant()  # use Father's method
+        else:
+            print("neutral behaviour")
+
+emotion1 = FamilyMember("calm")
+emotion2 = FamilyMember("arrogant")
+emotion3 = FamilyMember("other")
