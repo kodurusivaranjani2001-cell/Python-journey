@@ -1,0 +1,46 @@
+# polymorphism
+class movie1:
+    def __init__(self,movie,story,hero,collections):
+        self.movie=movie
+        self.story=story
+        self.hero=hero
+        self.collections=collections
+    def show_collections(self):
+        print(f"{self.movie} collected {self.collections}")
+        
+class movie2(movie1):
+    def __init__(self):
+        super().__init__("athadu","family","mahesh","20 cr")
+
+class movie3(movie1):
+    def __init__(self):
+        super().__init__("pokiri","service","mahesh","100 cr")
+    
+talk1=movie2()
+talk=movie3()
+talk1.show_collections()
+talk.show_collections()
+
+class movie1:
+    def __init__(self, movie, story, hero, collections):
+        self.movie = movie
+        self.story = story
+        self.hero = hero
+        self.collections = collections
+
+    def show_collections(self):
+        print(f"{self.movie} hero {self.hero}")
+
+
+class movie2(movie1):
+    def __init__(self):
+        super().__init__("athadu", "family", "mahesh", "20 cr")
+
+    def show_state_collections(self):
+        self.state = "AP"
+        print(f"{self.state}: {self.movie} collects {self.collections}")
+
+
+talk = movie2()
+talk.show_collections()        # parent class method
+talk.show_state_collections()  # child class method
