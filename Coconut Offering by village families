@@ -1,0 +1,23 @@
+from collections import Counter
+coconuts = ["R", "O", "R", "R", "C", "I", "R", "R", "R", "O"]*10
+families = 100
+perfectroundcoconut = "R"
+ovalshape="O"
+cracked ="C"
+irregular="I"
+if perfectroundcoconut in coconuts:
+    coconut_count=Counter(coconuts)
+    print("cocnut counts",coconut_count)
+    total_round_coco=coconut_count["R"]
+    print(total_round_coco)
+
+    for shape , count in coconut_count.items():
+        print(f"{count} families offerd perfect round coconut with defind shape{ shape}")
+total_coconuts=len(coconuts)
+print("total count of cocos means that many families",total_coconuts)
+percentage= (total_round_coco/total_coconuts)*100
+print(f"percentage of perfect round cocos is{percentage:.2f}%")
+if total_coconuts >= families :
+    print("all families participated")
+elif total_coconuts<= families:
+    print("some families are participated")
